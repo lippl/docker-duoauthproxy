@@ -7,7 +7,7 @@ RUN \
 	  libssl-dev \
 	  python-dev \
 	  libffi-dev \
-    zlib-devel \
+    zlib1g-dev \
   && apt-get clean \
 	&& rm -rf /tmp/* /var/tmp/* \
 	&& rm -rf /var/lib/apt/lists/* \
