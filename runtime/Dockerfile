@@ -15,7 +15,7 @@ RUN \
 ADD duoauthproxy.tgz /
 
 COPY harden /usr/sbin/harden
-RUN /usr/sbin/harden
+# RUN /usr/sbin/harden
 
 RUN mkdir -p /opt/duoauthproxy/log; \
     chown -R duo:duo /opt/duoauthproxy/log

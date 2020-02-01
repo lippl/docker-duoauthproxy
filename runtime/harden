@@ -2,6 +2,7 @@
 set -x
 set -e
 set -o pipefail
+
 ################################################################################
 # Docker build calls this script to harden the image during build.
 #
