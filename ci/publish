@@ -13,12 +13,12 @@ set -o pipefail
 
 # shellcheck disable=SC2154
 docker login -u "${user}" -p "${pass}"
-run docker tag duoauthproxy jumanjiman/duoauthproxy:"${TAG}"
-run docker tag duoauthproxy jumanjiman/duoauthproxy:latest
+run docker tag duoauthproxy registry.staiger.it/jumanjiman/duoauthproxy:"${TAG}"
+run docker tag duoauthproxy registry.staiger.it/jumanjiman/duoauthproxy:latest
 docker images | grep duoauthproxy
-run docker push jumanjiman/duoauthproxy:"${TAG}"
-run docker push jumanjiman/duoauthproxy:latest
+run docker push registry.staiger.it/jumanjiman/duoauthproxy:"${TAG}"
+run docker push registry.staiger.it/jumanjiman/duoauthproxy:latest
 docker logout
 
-run curl -X POST 'https://hooks.microbadger.com/images/jumanjiman/duoauthproxy/a6qK4f-H4zzOMK1R2wA_Oovckew='
+# run curl -X POST 'https://hooks.microbadger.com/images/jumanjiman/duoauthproxy/a6qK4f-H4zzOMK1R2wA_Oovckew='
 echo

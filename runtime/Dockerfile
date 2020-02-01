@@ -1,11 +1,15 @@
-FROM centos:7.7.1908
+FROM debian:buster-slim
 
 RUN \
-    yum install -y \
+    apt-get update \
+    && apt-get dist-upgrade -y --no-install-recommends \
+    && apt-get install -y \
       python \
       openssl \
       && \
-    rm -fr /var/cache/yum && \
+    && apt-get clean \
+  	&& rm -rf /tmp/* /var/tmp/* \
+  	&& rm -rf /var/lib/apt/lists/* \
     useradd -s /sbin/nologin duo
 
 # Use ADD, not COPY, to keep image small.
