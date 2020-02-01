@@ -1,27 +1,16 @@
-FROM centos:7.7.1908
+FROM debian:buster-slim
 
 RUN \
-    yum install -y \
-      bash \
-      curl \
-      python \
-      gcc \
-      gmp-devel \
-      libc-devel \
-      libffi-devel \
-      libgcc \
-      openssl-devel \
-      linux-headers \
-      make \
-      patch \
-      perl \
-      procps \
-      py-setuptools \
-      python-devel \
-      tar \
-      zlib-devel \
-    && rm -fr /var/cache/yum && \
-    useradd duo
+	apt-get update \
+	&& apt-get dist-upgrade -y --no-install-recommends \
+    && apt-get install -y build-essential \
+	  libssl-dev \
+	  python-dev \
+	  libffi-dev \
+    && apt-get clean \
+	&& rm -rf /tmp/* /var/tmp/* \
+	&& rm -rf /var/lib/apt/lists/* \
+    && useradd duo
 
 ARG VERSION
 
