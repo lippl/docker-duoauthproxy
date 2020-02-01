@@ -9,7 +9,7 @@ RUN \
     && apt-get clean \
   	&& rm -rf /tmp/* /var/tmp/* \
   	&& rm -rf /var/lib/apt/lists/* \
-    useradd -s /sbin/nologin duo
+    && useradd -s /sbin/nologin duo
 
 # Use ADD, not COPY, to keep image small.
 ADD duoauthproxy.tgz /
